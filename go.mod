@@ -1,3 +1,3 @@
-module github.com/MajorNick/ordered-set
+module github.com/MajorNick/orderedSet
 
 go 1.18
