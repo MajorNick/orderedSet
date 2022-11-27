@@ -22,6 +22,7 @@
 ##		return -1
 ##	}
 ##  st := NewSet(cmp)
+ ```
  cmp := func (a,b interface{}) int {
 	    a1 := a.(int)
 		b1 := b.(int)
@@ -34,3 +35,4 @@
 		return -1
 	}
   st := NewSet(cmp)
+```
