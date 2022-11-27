@@ -22,3 +22,15 @@
 ##		return -1
 ##	}
 ##  st := NewSet(cmp)
+ cmp := func (a,b interface{}) int {
+	    a1 := a.(int)
+		b1 := b.(int)
+		   if a1 == b1 {
+			   return 0
+		}
+		if(a1>b1){
+			return 1
+		}
+		return -1
+	}
+  st := NewSet(cmp)
