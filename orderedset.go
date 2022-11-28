@@ -2,7 +2,7 @@ package orderedSet
 
 
 
-//import "fmt"
+
 
 type orderedSet []interface{}
 
@@ -12,7 +12,7 @@ var cmp func(a, b interface{}) int
 func NewSet(compare func(a, b interface{}) int, elems ...interface{}) orderedSet {
 	cmp = compare
 
-	st := make(orderedSet, len(elems), cap(elems))
+	st := make(orderedSet, 0)
 	for _, v := range elems {
 		st.Insert(v)
 	}
@@ -59,9 +59,10 @@ func (st orderedSet) Bsearch(elem interface{}) int {
 		if cmp(st[mid], elem) == 0 {
 			return mid
 		}
-		if mid == 0 || mid == len(st)-1 {
-			return -1
+		if l>=r{
+			break
 		}
+
 		if cmp(elem,st[mid]) == -1 {
 			r = mid - 1
 			
@@ -70,7 +71,7 @@ func (st orderedSet) Bsearch(elem interface{}) int {
 		}
 	}
 
-
+	return -1
 }
 func (st orderedSet) Contains(elem interface{}) bool {
 	return st.Bsearch(elem) != -1
