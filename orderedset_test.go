@@ -54,8 +54,8 @@ func TestOnStrings(t *testing.T){
 		
 	}
 	for i:=0;i<26;i++{
-		if tmp[i] != st.set[i]{
-			t.Fatalf("Set Isn't Sorted! expected %s, found %s!\n",tmp[i],st.set[i])
+		if tmp[i] != st.Set[i]{
+			t.Fatalf("Set Isn't Sorted! expected %s, found %s!\n",tmp[i],st.Set[i])
 		}
 	}
 
@@ -64,8 +64,8 @@ func TestOnStrings(t *testing.T){
 		
 		k:=st.Bsearch(string(i))
 		
-		if k == -1||string(i) != st.set[k]{
-			t.Fatalf("Wrong Answer in Bsearch! expected %s, found %s!\n",tmp[i],st.set[i])
+		if k == -1||string(i) != st.Set[k]{
+			t.Fatalf("Wrong Answer in Bsearch! expected %s, found %s!\n",tmp[i],st.Set[i])
 		}
 	}
 }
@@ -95,8 +95,8 @@ func TestOnStructs(t *testing.T){
 
 	for i:=1;i<10;i++{
 		
-		if st.set[i-1].(tp).id!= i{
-			t.Fatalf("Set Isn't Sorted! expected %v, found %v!\n",tp{"","",i},st.set[i])
+		if st.Set[i-1].(tp).id!= i{
+			t.Fatalf("Set Isn't Sorted! expected %v, found %v!\n",tp{"","",i},st.Set[i])
 		}
 	}
 
@@ -104,8 +104,8 @@ func TestOnStructs(t *testing.T){
 		
 		k:=st.Bsearch(tp{"","",i})
 		tmp := tp{"","",i}
-		if tmp != st.set[k]{
-			t.Fatalf("Wrong Answer in Bsearch! expected %v, found %v!\n",tp{"","",i},st.set[i])
+		if tmp != st.Set[k]{
+			t.Fatalf("Wrong Answer in Bsearch! expected %v, found %v!\n",tp{"","",i},st.Set[i])
 		}
 	}
 
@@ -132,8 +132,8 @@ func TestLower_Bound(t *testing.T) {
 	
 	for i:=0;i<len(sorted);i++{
 		
-		if sorted[i]!=st.set[i]{
-			t.Fatalf("Set Isn't Sorted! expected %d, found %d!\n",sorted[i],st.set[i])
+		if sorted[i]!=st.Set[i]{
+			t.Fatalf("Set Isn't Sorted! expected %d, found %d!\n",sorted[i],st.Set[i])
 		}
 	} 
 

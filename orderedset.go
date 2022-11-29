@@ -5,7 +5,7 @@ package orderedSet
 
 
 type orderedSet struct{
-	set []interface{}
+	Set []interface{}
 	size int
 	cmp func(a, b interface{}) int
 }
@@ -19,7 +19,7 @@ func NewSet(compare func(a, b interface{}) int, elems ...interface{}) orderedSet
 
 	st := orderedSet{}
 	st.cmp = compare
-	st.set = make([]interface{}, 0)
+	st.Set = make([]interface{}, 0)
 	st.size = 0
 	
 	for _, v := range elems {
@@ -48,13 +48,13 @@ func (st *orderedSet) Lower_bound(elem interface{}) int {
 		if mid >= st.size{
 			break
 		}
-		if st.cmp(elem, (st.set)[mid]) != 1 {
+		if st.cmp(elem, (st.Set)[mid]) != 1 {
 			r = mid
 		} else {
 			l = mid + 1
 		}
 	}
-	if	l <st.size&&st.cmp((st.set)[l],elem)==-1 {
+	if	l <st.size&&st.cmp((st.Set)[l],elem)==-1 {
 		l++
 	 }
 	return l
@@ -65,14 +65,14 @@ func (st orderedSet) Bsearch(elem interface{}) int {
 	r := st.size - 1
 	for {
 		mid := (r + l) / 2
-		if st.cmp(st.set[mid], elem) == 0 {
+		if st.cmp(st.Set[mid], elem) == 0 {
 			return mid
 		}
 		if l>=r{
 			break
 		}
 
-		if st.cmp(elem,st.set[mid]) == -1 {
+		if st.cmp(elem,st.Set[mid]) == -1 {
 			r = mid - 1
 			
 		}else{
@@ -91,21 +91,21 @@ func (st *orderedSet) Insert(elem interface{}) bool {
 	i := st.Lower_bound(elem)
 
 	if i >= st.size{
-		(st.set) = append(st.set, elem)
+		(st.Set) = append(st.Set, elem)
 		st.size++
 		return true
 	}
 	
-	if i == 0 && (st.cmp(elem, (st.set)[0]) != 0) {
+	if i == 0 && (st.cmp(elem, (st.Set)[0]) != 0) {
 		
-		st.set = append([]interface{}{elem}, (st.set)[0:]...)
+		st.Set = append([]interface{}{elem}, (st.Set)[0:]...)
 		st.size++
 		return true
 	}
 		
-	if st.cmp(elem, (st.set)[i]) != 0 {
-		(st.set)= append((st.set)[0:i+1], (st.set)[i:]...)
-		(st.set)[i] = elem
+	if st.cmp(elem, (st.Set)[i]) != 0 {
+		(st.Set)= append((st.Set)[0:i+1], (st.Set)[i:]...)
+		(st.Set)[i] = elem
 		st.size++
 	return true
 }
@@ -116,7 +116,7 @@ func (st *orderedSet) Remove(elem interface{}) bool {
 	if i == -1 {
 		return false
 	} else {
-		(st.set) = append((st.set)[:i], (st.set)[i+1:]...)
+		(st.Set) = append((st.Set)[:i], (st.Set)[i+1:]...)
 		st.size--
 		return true
 	}
