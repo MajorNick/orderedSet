@@ -25,3 +25,13 @@
 	}
   st := NewSet(cmp)
 ```
+
+### Internal structure is 
+```
+type orderedSet struct{
+	set []interface{}
+	size int
+	cmp func(a, b interface{}) int
+}
+```
+### So if you want to get element from set use (your Set).set["index"] 
