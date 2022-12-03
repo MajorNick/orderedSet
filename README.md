@@ -34,4 +34,4 @@ type orderedSet struct{
 	cmp func(a, b interface{}) int
 }
 ```
-### So if you want to get element from set use (your Set).set["index"] 
+### So if you want to get element from set use (your Set).Get("index") 
