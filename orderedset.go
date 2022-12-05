@@ -1,6 +1,8 @@
 package orderedSet
 
-
+import(
+	"fmt"
+)
 
 
 
@@ -161,4 +163,13 @@ func (st *OrderedSet) Remove(elem interface{}) bool {
 
 }
 
-//helper functions
+// Classic ToString function
+
+func (st OrderedSet) ToString()string{
+	s := ""
+	for i:=0;i<len(st.set);i++{
+		s += fmt.Sprintf("%v ",st.set[i])
+	}
+	return s 
+}
+

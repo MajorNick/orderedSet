@@ -1,6 +1,7 @@
 package orderedSet
 
 import (
+	
 	"testing"
 )
 
@@ -59,7 +60,7 @@ func TestOnStrings(t *testing.T){
 		}
 	}
 
-
+	
 	for i:='a';i<='z';i++{
 		
 		k:=st.Bsearch(string(i))
@@ -129,7 +130,7 @@ func TestLower_Bound(t *testing.T) {
 	for i:=0;i<len(sorted);i++{
 		st.Insert(slc[i])
 	}
-	
+		
 	for i:=0;i<len(sorted);i++{
 		
 		if sorted[i]!=st.Get(i){
