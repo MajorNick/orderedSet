@@ -152,3 +152,38 @@ func TestLower_Bound(t *testing.T) {
 	}
 
 }
+func TestString(t *testing.T){
+	cmp := func (a,b interface{}) int {
+		a1 := a.(string)
+		b1 := b.(string)
+		if a1 == b1 {
+			return 0
+		}
+		if(a1>b1){
+			return 1
+		}
+		return -1
+	}
+	st := NewSet(cmp)
+	tmp := []string{}
+	for i:='a';i<='z';i++{
+		st.Insert(string(i))
+		tmp = append(tmp,string(i))
+		
+	}
+	for i:=0;i<26;i++{
+		if tmp[i] != st.Get(i){
+			t.Fatalf("Set Isn't Sorted! expected %s, found %s!\n",tmp[i],st.Get(i))
+		}
+	}
+
+	
+	for i:='a';i<='z';i++{
+		
+		k:=st.Bsearch(string(i))
+		
+		if k == -1||string(i) != st.Get(k){
+			t.Fatalf("Wrong Answer in Bsearch! expected %s, found %s!\n",tmp[i],st.Get(k))
+		}
+	}
+}
